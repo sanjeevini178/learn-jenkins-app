@@ -17,14 +17,14 @@ pipeline {
                 npm ci
                 npm run build
                 ls -la
-                npm audit fix --force
+                
                 '''
             }
         }
         stage('Test') {
             steps {
                 sh 'echo "Test Stage"'
-                sh 'test build/index.html'
+                sh 'test -f build/index.html'
                 sh 'npm test'
             }
         }
